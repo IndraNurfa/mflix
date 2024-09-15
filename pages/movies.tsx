@@ -22,17 +22,19 @@ const Movies: React.FC<MoviesProps> = ({ movies }) => {
                 <small>(According to Metacritic)</small>
             </p>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full border border-gray-200">
                     <thead>
-                        <tr className="bg-gray-200 text-left">
+                        <tr className="bg-gray-500 text-left">
+                            <th className="py-2 px-4">#</th>
                             <th className="py-2 px-4">Title</th>
                             <th className="py-2 px-4">Metacritic Score</th>
                             <th className="py-2 px-4">Plot</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {movies.map((movie) => (
-                            <tr key={movie._id} className="border-t">
+                        {movies.map((movie, index) => (
+                            <tr key={movie._id.toString()} className="border-t hover:bg-zinc-400">
+                                <td className="py-2 px-4">{index + 1}</td>
                                 <td className="py-2 px-4 font-semibold">{movie.title}</td>
                                 <td className="py-2 px-4">{movie.metacritic}</td>
                                 <td className="py-2 px-4">{movie.plot}</td>
